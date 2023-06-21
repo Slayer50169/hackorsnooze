@@ -24,7 +24,7 @@ function generateStoryMarkup(story) {
 
   const hostName = story.getHostName();
   let favoriteStyle;
-  let ownStory;
+  let ownStory ='';
   let hidden = 'hidden';
   if(currentUser){
     favoriteStyle = (currentUser.favorites.some((i) => i.storyId == story.storyId)) ? 'fa-solid' : 'fa-regular';
