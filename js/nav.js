@@ -4,9 +4,12 @@
  * Handling navbar clicks and updating navbar
  */
 
+let currentPage;
+
 /** Show main list of all stories when click site name */
 
 function navAllStories(evt) {
+  currentPage = 'all';
   hidePageComponents();
   $storyForm.hide();
   getAndShowStoriesOnStart();
@@ -16,6 +19,7 @@ $body.on("click", "#nav-all", navAllStories);
 
 /** Show users favorited stories */
 function navFavStories(){
+  currentPage = 'fav';
   hidePageComponents();
   $storyForm.hide();
   storyList = new StoryList(currentUser.favorites.map(story => new Story(story)))
@@ -26,6 +30,7 @@ $body.on("click", "#favorites", navFavStories);
 
 /** Show users own stories */
 function navOwnStories(){
+  currentPage = 'own';
   hidePageComponents();
   $storyForm.hide();
   storyList = new StoryList(currentUser.ownStories.map(story => new Story(story)))

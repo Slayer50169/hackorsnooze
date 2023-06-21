@@ -86,9 +86,13 @@ class StoryList {
       }
   );
     let story = new Story(response.data.story);
+
     this.stories.push(story);
-    currentUser.ownStories.push(story);
-    $allStoriesList.prepend(generateStoryMarkup(story));
+    currentUser.ownStories.unshift(story);
+    if (currentPage != 'fav'){
+      $allStoriesList.prepend(generateStoryMarkup(story));
+    }
+    
     return story;
   }
 }
