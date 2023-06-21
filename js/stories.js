@@ -24,7 +24,7 @@ function generateStoryMarkup(story) {
 
   const hostName = story.getHostName();
   let favoriteStyle;
-  let ownStory ='';
+  let ownStory = '';
   let hidden = 'hidden';
   if(currentUser){
     favoriteStyle = (currentUser.favorites.some((i) => i.storyId == story.storyId)) ? 'fa-solid' : 'fa-regular';
@@ -41,8 +41,8 @@ function generateStoryMarkup(story) {
         <small class="story-hostname">(${hostName})</small><br>
         <small class="story-author">by ${story.author}</small><br>
         <small class="story-user">posted by ${story.username}</small>
+        <hr>
       </li>
-      <hr>
     `);
 }
 
@@ -70,12 +70,11 @@ function createAndSubmitStory(e){
   let title = $("#title").val();
   let url = $("#url").val();
   let author = $("#author").val();
-  console.log(title);
   storyList.addStory(currentUser, {
     author: author,
     title: title,
     url: url
   });
-  $allStoriesList.show();
   $storyForm.hide();
+  $allStoriesList.show();
 }

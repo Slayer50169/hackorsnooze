@@ -86,7 +86,6 @@ class StoryList {
       }
   );
     let story = new Story(response.data.story);
-    console.log(story);
     this.stories.push(story);
     currentUser.ownStories.push(story);
     $allStoriesList.prepend(generateStoryMarkup(story));

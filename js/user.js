@@ -128,12 +128,10 @@ async function handleIconClick(e){
     for(let i of currentUser.ownStories){
       if (i.storyId == $(e.target.parentNode)[0].id)
         currentUser.ownStories.splice(currentUser.ownStories.indexOf(i), 1);
-        return;
     }
     for(let i of currentUser.favorites){
       if (i.storyId == $(e.target.parentNode)[0].id)
         currentUser.favorites.splice(currentUser.favorites.indexOf(i), 1);
-        return;
     }
   }
 }
